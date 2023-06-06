@@ -63,7 +63,7 @@ func (dll *DoublyLinkedList) DisplayBackward() {
 	fmt.Println()
 }
 
-func main() {
+func ____() {
 	dll := DoublyLinkedList{}
 	// Inserting elements at the beginning of the list
 	dll.InsertAtBeginning(3)

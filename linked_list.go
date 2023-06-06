@@ -96,14 +96,34 @@ func (ll *LinkedList) SearchSuccess(data interface{}) bool {
 	return false
 }
 
-func main____________________() {
+func (ll *LinkedList) SearchRecursion(data interface{}) bool {
+	if ll.IsEmpty() {
+		return false
+	}
+	current := ll.head
+	if current.data == data {
+		return true
+	}
+
+	if current.next == nil {
+		return false
+	}
+	return ll.SearchRecursion(current.next)
+}
+
+func (ll *LinkedList) IsEmpty() bool {
+	return ll.head == nil
+}
+
+func main() {
 	ll := LinkedList{}
-	//for i := 0; i <= 6; i++ {
-	//	ll.AddNode(i)
-	//	//ll.Remove(i)
-	//}
+	for i := 0; i <= 6; i++ {
+		ll.AddNode(i)
+		//ll.Remove(i)
+	}
 	ll.InsertAtBeginning(1000)
 	ll.Remove(1000)
-	fmt.Println(ll.size)
+	//fmt.Println(ll.size)
+	ll.SearchRecursion(3)
 	ll.DisplayList()
 }
